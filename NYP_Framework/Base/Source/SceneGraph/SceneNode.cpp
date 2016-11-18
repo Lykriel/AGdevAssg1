@@ -319,7 +319,6 @@ int CSceneNode::GetNumOfChild(void)
 // Update the Scene Graph
 void CSceneNode::Update(void)
 {
-
 	/*
 	Mtx44 orig = GetTransform();
 	Mtx44 update = GetUpdateTransform();
@@ -341,6 +340,11 @@ void CSceneNode::Update(void)
 	cout << "[\t" << update.a[3] << "\t" << update.a[7] << "\t" << update.a[11] << "\t" << update.a[15] << "\t]" << endl;
 	cout << "======================================================================" << endl;
 	*/
+	//Update the Transformation between this node and its children
+	if (theUpdateTransformation)
+	{
+		ApplyTransform(GetUpdateTransform());
+	}
 
 	// Update the children
 	std::vector<CSceneNode*>::iterator it;
@@ -355,34 +359,33 @@ void CSceneNode::Render(void)
 	MS& modelStack = GraphicsManager::GetInstance()->GetModelStack();
 	modelStack.PushMatrix();
 
-		if (theEntity)
-		{
-			//modelStack.LoadMatrix(this->GetTransform());
-			modelStack.MultMatrix(this->GetTransform());
+	if (theEntity)
+	{
+		//modelStack.LoadMatrix(this->GetTransform());
+		modelStack.MultMatrix(this->GetTransform());
 
-			/*
-			Mtx44 Mtx = modelStack.Top();
-			cout << "======================================================================" << endl;
-			cout << "CSceneNode::PrintSelf" << endl;
-			cout << "----------------------------------------------------------------------" << endl;
-			cout << "[\t" << Mtx.a[0] << "\t" << Mtx.a[4] << "\t" << Mtx.a[8] << "\t" << Mtx.a[12] << "\t]" << endl;
-			cout << "[\t" << Mtx.a[1] << "\t" << Mtx.a[5] << "\t" << Mtx.a[9] << "\t" << Mtx.a[13] << "\t]" << endl;
-			cout << "[\t" << Mtx.a[2] << "\t" << Mtx.a[6] << "\t" << Mtx.a[10] << "\t" << Mtx.a[14] << "\t]" << endl;
-			cout << "[\t" << Mtx.a[3] << "\t" << Mtx.a[7] << "\t" << Mtx.a[11] << "\t" << Mtx.a[15] << "\t]" << endl;
-			cout << "======================================================================" << endl;
-			*/
+		/*
+		Mtx44 Mtx = modelStack.Top();
+		cout << "======================================================================" << endl;
+		cout << "CSceneNode::PrintSelf" << endl;
+		cout << "----------------------------------------------------------------------" << endl;
+		cout << "[\t" << Mtx.a[0] << "\t" << Mtx.a[4] << "\t" << Mtx.a[8] << "\t" << Mtx.a[12] << "\t]" << endl;
+		cout << "[\t" << Mtx.a[1] << "\t" << Mtx.a[5] << "\t" << Mtx.a[9] << "\t" << Mtx.a[13] << "\t]" << endl;
+		cout << "[\t" << Mtx.a[2] << "\t" << Mtx.a[6] << "\t" << Mtx.a[10] << "\t" << Mtx.a[14] << "\t]" << endl;
+		cout << "[\t" << Mtx.a[3] << "\t" << Mtx.a[7] << "\t" << Mtx.a[11] << "\t" << Mtx.a[15] << "\t]" << endl;
+		cout << "======================================================================" << endl;
+		*/
 
+		// Render the entity
+		theEntity->Render();
+	}
 
-			// Render the entity
-			theEntity->Render();
-		}
-
-		// Render the children
-		std::vector<CSceneNode*>::iterator it;
-		for (it = theChildren.begin(); it != theChildren.end(); ++it)
-		{
-			(*it)->Render();
-		}
+	// Render the children
+	std::vector<CSceneNode*>::iterator it;
+	for (it = theChildren.begin(); it != theChildren.end(); ++it)
+	{
+		(*it)->Render();
+	}
 
 	modelStack.PopMatrix();
 }
@@ -408,8 +411,8 @@ void CSceneNode::PrintSelf(const int numTabs)
 	{
 		for (int i = 0; i < numTabs; i++)
 			cout << "\t";
-		cout << "CSceneNode::PrintSelf: ID=" << ID << "/theEntity=" << theEntity << 
-				"/Children=" << theChildren.size() << endl;
+		cout << "CSceneNode::PrintSelf: ID=" << ID << "/theEntity=" << theEntity <<
+			"/Children=" << theChildren.size() << endl;
 		for (int i = 0; i < numTabs; i++)
 			cout << "\t";
 		cout << "Printing out the children:" << endl;

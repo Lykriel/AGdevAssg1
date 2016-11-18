@@ -1,10 +1,12 @@
 ﻿#pragma once
 #include "Mtx44.h"
+#include "UpdateTransformation.h"
 
 class CTransform
 {
 protected:
 	Mtx44 Mtx, DefaultMtx;
+	CUpdateTransformation* theUpdateTransformation;
 public:
 	enum AXIS
 	{
@@ -17,12 +19,12 @@ public:
 	// Default Constructor
 	CTransform(void);
 	// Overloaded Constructor
-	CTransform( const float dx, const float dy, const float dz  );
+	CTransform(const float dx, const float dy, const float dz);
 	// Destructor
 	~CTransform(void);
 
 	// Apply a translation to the Transformation Matrix
-	void ApplyTranslate( const float dx, const float dy, const float dz  );
+	void ApplyTranslate(const float dx, const float dy, const float dz);
 	// Get the translation from the Transformation Matrix
 	void GetTranslate(float& x, float& y, float& z);
 	// Apply a rotation to the Transformation Matrix
@@ -38,10 +40,14 @@ public:
 	void ApplyTransform(Mtx44 newMTX);
 
 	// Reset the transformation matrix to identity matrix
-	void Reset (void); //reset to identity
-	
+	void Reset(void); //reset to identity
+
 	// Get the transformation matrix
 	Mtx44 GetTransform(void);
+	//Set the Update Transformation
+	void SetUpdateTransformation(CUpdateTransformation* theUpdateTransformation = NULL);
+	//Get the update transformation matrix
+	Mtx44 GetUpdateTransform(void);
 
 	// Print Self
 	void PrintSelf(void) const;
