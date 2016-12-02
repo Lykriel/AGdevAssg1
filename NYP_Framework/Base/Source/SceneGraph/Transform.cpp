@@ -53,25 +53,37 @@ float CTransform::GetRotate(const AXIS theAxis)
 {
 	if (theAxis == X_AXIS)
 	{
-		float y = acos(Mtx.a[5]);   //Equal to cos a
-		float z = asin(-Mtx.a[9]); // Equal to sin a
+		float y = acos(Mtx.a[5]);	// Equals to cos a
+		float z = asin(-Mtx.a[9]);	// Equals to sin a
 
 		if (abs(y - z) < Math::EPSILON)
 			return y;
+		else
+		{
+			// This Matrix is wrong!
+		}
 	}
 	else if (theAxis == Y_AXIS)
 	{
-		float x = acos(Mtx.a[0]); //Equal to cos a
-		float z = asin(Mtx.a[8]); // Equals to -sin a
+		float x = acos(Mtx.a[0]);	// Equals to cos a
+		float z = asin(Mtx.a[8]);	// Equals to -sin a
 		if (abs(x - z) < Math::EPSILON)
 			return x;
+		else
+		{
+			// This Matrix is wrong!
+		}
 	}
 	else // Z_AXIS
 	{
-		float x = acos(Mtx.a[0]); // Equals to cos a
-		float y = asin(-Mtx.a[4]); // Equals to -sin a
+		float x = acos(Mtx.a[0]);	// Equals to cos a
+		float y = asin(-Mtx.a[4]);	// Equals to -sin a
 		if (abs(x - y) < Math::EPSILON)
 			return x;
+		else
+		{
+			// This Matrix is wrong!
+		}
 	}
 	return 0.0f;
 }
@@ -85,6 +97,7 @@ void CTransform::SetScale(const float sx, const float sy, const float sz)
 		scaleY = 1.0f;
 	if (scaleZ == 0.0f)
 		scaleZ = 1.0f;
+
 	Mtx.SetToScale(scaleX, scaleY, scaleZ);
 }
 // Get the scale from the Transformation Matrix
@@ -113,12 +126,13 @@ Mtx44 CTransform::GetTransform(void)
 	return Mtx;
 }
 
-//Set the Update Transformation
+// Set the Update Transformation
 void CTransform::SetUpdateTransformation(CUpdateTransformation* theUpdateTransformation)
 {
 	this->theUpdateTransformation = theUpdateTransformation;
 }
-//Get the update transformation matrix
+
+// Get the update transformation matrix
 Mtx44 CTransform::GetUpdateTransform(void)
 {
 	if (theUpdateTransformation == NULL)
@@ -133,19 +147,12 @@ Mtx44 CTransform::GetUpdateTransform(void)
 // Print Self
 void CTransform::PrintSelf(void) const
 {
-	cout << "======================================================================"
-		<< endl;
+	cout << "======================================================================" << endl;
 	cout << "CTransform::PrintSelf" << endl;
-	cout << "----------------------------------------------------------------------"
-		<< endl;
-	cout << "[\t" << Mtx.a[0] << "\t" << Mtx.a[4] << "\t" << Mtx.a[8] << "\t" <<
-		Mtx.a[12] << "\t]" << endl;
-	cout << "[\t" << Mtx.a[1] << "\t" << Mtx.a[5] << "\t" << Mtx.a[9] << "\t" <<
-		Mtx.a[13] << "\t]" << endl;
-	cout << "[\t" << Mtx.a[2] << "\t" << Mtx.a[6] << "\t" << Mtx.a[10] << "\t" <<
-		Mtx.a[14] << "\t]" << endl;
-	cout << "[\t" << Mtx.a[3] << "\t" << Mtx.a[7] << "\t" << Mtx.a[11] << "\t" <<
-		Mtx.a[15] << "\t]" << endl;
-	cout << "======================================================================"
-		<< endl;
+	cout << "----------------------------------------------------------------------" << endl;
+	cout << "[\t" << Mtx.a[ 0] << "\t" << Mtx.a[ 4] << "\t" << Mtx.a[ 8] << "\t" << Mtx.a[12] << "\t]" << endl;
+	cout << "[\t" << Mtx.a[ 1] << "\t" << Mtx.a[ 5] << "\t" << Mtx.a[ 9] << "\t" << Mtx.a[13] << "\t]" << endl;
+	cout << "[\t" << Mtx.a[ 2] << "\t" << Mtx.a[ 6] << "\t" << Mtx.a[10] << "\t" << Mtx.a[14] << "\t]" << endl;
+	cout << "[\t" << Mtx.a[ 3] << "\t" << Mtx.a[ 7] << "\t" << Mtx.a[11] << "\t" << Mtx.a[15] << "\t]" << endl;
+	cout << "======================================================================" << endl;
 }

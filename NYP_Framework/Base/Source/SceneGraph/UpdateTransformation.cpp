@@ -1,4 +1,6 @@
 #include "UpdateTransformation.h"
+
+
 CUpdateTransformation::CUpdateTransformation()
 	: curSteps(0)
 	, deltaSteps(1)
@@ -8,6 +10,8 @@ CUpdateTransformation::CUpdateTransformation()
 	Update_Mtx.SetToIdentity();
 	Update_Mtx_REVERSED.SetToIdentity();
 }
+
+
 CUpdateTransformation::~CUpdateTransformation()
 {
 }
@@ -18,6 +22,7 @@ void CUpdateTransformation::Reset(void)
 	Update_Mtx.SetToIdentity();
 	Update_Mtx_REVERSED.SetToIdentity();
 }
+
 // Update the steps
 void CUpdateTransformation::Update(void)
 {
@@ -27,6 +32,7 @@ void CUpdateTransformation::Update(void)
 		deltaSteps *= -1;
 	}
 }
+
 // Apply a translation to the Update Transformation Matrix
 void CUpdateTransformation::ApplyUpdate(const float dx, const float dy, const float dz)
 {
@@ -34,12 +40,12 @@ void CUpdateTransformation::ApplyUpdate(const float dx, const float dy, const fl
 	Update_Mtx_REVERSED.SetToTranslation(-dx, -dy, -dz);
 }
 // Apply a rotation to the Update Transformation Matrix
-void CUpdateTransformation::ApplyUpdate(const float angle, const float rx, const float
-	ry, const float rz)
+void CUpdateTransformation::ApplyUpdate(const float angle, const float rx, const float ry, const float rz)
 {
 	Update_Mtx.SetToRotation(angle, rx, ry, rz);
 	Update_Mtx_REVERSED.SetToRotation(-angle, rx, ry, rz);
 }
+
 // Set the minSteps and maxSteps
 void CUpdateTransformation::SetSteps(const int minSteps, const int maxSteps)
 {
@@ -51,7 +57,8 @@ void CUpdateTransformation::GetSteps(int& minSteps, int& maxSteps)
 {
 	minSteps = this->minSteps;
 	maxSteps = this->maxSteps;
-}// Get the direction of update
+}
+// Get the direction of update
 bool CUpdateTransformation::GetDirection(void) const
 {
 	if (deltaSteps == -1)
