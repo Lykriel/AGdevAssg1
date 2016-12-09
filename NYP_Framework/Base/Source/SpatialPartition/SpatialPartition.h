@@ -5,7 +5,6 @@
 #include "EntityBase.h"
 #include "../FPSCamera.h"
 
-
 class CSpatialPartition
 {
 protected:
@@ -26,7 +25,7 @@ protected:
 
 	// We store the pointer to the Camera so we can get it's position and direction to calculate LOD and visibility
 	FPSCamera* theCamera;
-	//LOD distance
+	// LOD distances
 	float LevelOfDetails_Distances[2];
 
 public:
@@ -101,8 +100,8 @@ public:
 	void SetCamera(FPSCamera* _cameraPtr);
 	void RemoveCamera(void);
 
-	//Set LOD Distance
+	// Set LOD distances
 	void SetLevelOfDetails(const float distance_High2Mid, const float distance_Mid2Low);
-	//check if a grid is visible in camera
+	// Check if a CGrid is visible to the camera
 	bool IsVisible(Vector3 theCameraPosition, Vector3 theCameraDirection, const int xIndex, const int zIndex);
 };

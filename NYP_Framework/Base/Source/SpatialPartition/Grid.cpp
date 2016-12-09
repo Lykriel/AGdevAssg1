@@ -196,33 +196,33 @@ void CGrid::PrintSelf()
 	cout << "CGrid::PrintSelf()" << endl;
 	cout << "\tIndex\t:\t" << index << "\t\tOffset\t:\t" << offset << endl;
 	cout << "\tMin\t:\t" << min << "\tMax\t:\t" << max << endl;
+	cout << "\tList of objects in this grid: (LOD:" << this->theDetailLevel << ")" << endl;
+	cout << "\t------------------------------------------------------------------------" << endl;
 	if (ListOfObjects.size() > 0)
 	{
-		cout << "\tList of objects in this grid: (LOD:" << this->theDetailLevel << ")" << endl;
-		cout << "\t------------------------------------------------------------------------" << endl;
-	}
-	for (int i = 0; i < ListOfObjects.size(); ++i)
-	{
-		cout << "\t" << i << "\t:\t" << ListOfObjects[i]->GetPosition() << endl;
+		for (int i = 0; i < ListOfObjects.size(); ++i)
+		{
+			cout << "\t" << i << "\t:\t" << ListOfObjects[i]->GetPosition() << endl;
+		}
 	}
 	if (ListOfObjects.size()>0)
 		cout << "\t------------------------------------------------------------------------" << endl;
 	cout << "********************************************************************************" << endl;
 }
-/********************************************************************************
-Set level of details for objects in this grid
-********************************************************************************/
 
+/********************************************************************************
+ Set the Level of Detail for objects in this CGrid
+ ********************************************************************************/
 void CGrid::SetDetailLevel(const CLevelOfDetails::DETAIL_LEVEL theDetailLevel)
 {
 	this->theDetailLevel = theDetailLevel;
 
 	if ((ListOfObjects.size() > 0) && (theDetailLevel == 0))
 	{
-		//put break point here to trace that entities in this grid set to NO_DETAILS
+		// Put a break-point here to trace and see that the entities in this CGrid are set to NO_DETAILS
 		int a = 0;
 	}
-	//check each object to see if they are no longer in this grid
+	// Check each object to see if they are no longer in this grid
 	std::vector<EntityBase*>::iterator it;
 	it = ListOfObjects.begin();
 	while (it != ListOfObjects.end())

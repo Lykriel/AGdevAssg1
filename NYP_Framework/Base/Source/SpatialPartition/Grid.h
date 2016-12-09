@@ -30,7 +30,7 @@ protected:
 	// List of objects in this grid
 	vector<EntityBase*> ListOfObjects;
 
-	//The level of details for this grid
+	// The level of detail for this CGrid
 	CLevelOfDetails::DETAIL_LEVEL theDetailLevel;
 
 public:
@@ -70,6 +70,6 @@ public:
 	// PrintSelf
 	void PrintSelf();
 
-	//Set the level of detail for the objects in this CGrid
+	// Set the Level of Detail for objects in this CGrid
 	void SetDetailLevel(const CLevelOfDetails::DETAIL_LEVEL theDetailLevel);
 };

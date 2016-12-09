@@ -1,7 +1,7 @@
-﻿Build started 2/12/2016 5:25:28 PM.
-     1>Project "C:\Users\Jenny Liang\Desktop\AGDEV\NYP_Framework\Common\Common.vcxproj" on node 2 (Build target(s)).
+﻿Build started 9/12/2016 4:00:54 PM.
+     1>Project "C:\Users\Jenny Liang\Downloads\NYP_Framework(10)\NYP_Framework\Common\Common.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Jenny Liang\Desktop\AGDEV\NYP_Framework\/glew/include" /I"C:\Users\Jenny Liang\Desktop\AGDEV\NYP_Framework\/glfw/include" /ZI /nologo /W3 /WX- /Od /Oy- /D _VARIADIC_MAX=10 /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source\CameraBase.cpp Source\Collider\Collider.cpp Source\EntityBase.cpp Source\GraphicsManager.cpp Source\KeyboardController.cpp Source\LightBase.cpp Source\LoadOBJ.cpp Source\LoadTGA.cpp Source\MathUtility.cpp Source\MatrixStack.cpp Source\Mesh.cpp Source\MeshBuilder.cpp Source\MouseController.cpp Source\Mtx44.cpp Source\RenderHelper.cpp Source\SceneManager.cpp Source\ShaderProgram.cpp Source\timer.cpp Source\Utility.cpp Source\Vector2.cpp Source\Vector3.cpp Source\Win32Input.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Jenny Liang\Downloads\NYP_Framework(10)\NYP_Framework\/glew/include" /I"C:\Users\Jenny Liang\Downloads\NYP_Framework(10)\NYP_Framework\/glfw/include" /ZI /nologo /W3 /WX- /Od /Oy- /D _VARIADIC_MAX=10 /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source\CameraBase.cpp Source\Collider\Collider.cpp Source\EntityBase.cpp Source\GraphicsManager.cpp Source\KeyboardController.cpp Source\LightBase.cpp Source\LoadOBJ.cpp Source\LoadTGA.cpp Source\MathUtility.cpp Source\MatrixStack.cpp Source\Mesh.cpp Source\MeshBuilder.cpp Source\MouseController.cpp Source\Mtx44.cpp Source\RenderHelper.cpp Source\SceneManager.cpp Source\ShaderProgram.cpp Source\timer.cpp Source\Utility.cpp Source\Vector2.cpp Source\Vector3.cpp Source\Win32Input.cpp
          Win32Input.cpp
          Vector3.cpp
          Vector2.cpp
@@ -28,7 +28,7 @@
          CameraBase.cpp
          Generating Code...
        Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Jenny Liang\Desktop\AGDEV\NYP_Framework\Debug\Common.lib" /NOLOGO Debug\CameraBase.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Jenny Liang\Downloads\NYP_Framework(10)\NYP_Framework\Debug\Common.lib" /NOLOGO Debug\CameraBase.obj
          Debug\Collider.obj
          Debug\EntityBase.obj
          Debug\GraphicsManager.obj
@@ -50,9 +50,9 @@
          Debug\Vector2.obj
          Debug\Vector3.obj
          Debug\Win32Input.obj
-         Common.vcxproj -> C:\Users\Jenny Liang\Desktop\AGDEV\NYP_Framework\Debug\Common.lib
-     1>Done Building Project "C:\Users\Jenny Liang\Desktop\AGDEV\NYP_Framework\Common\Common.vcxproj" (Build target(s)).
+         Common.vcxproj -> C:\Users\Jenny Liang\Downloads\NYP_Framework(10)\NYP_Framework\Debug\Common.lib
+     1>Done Building Project "C:\Users\Jenny Liang\Downloads\NYP_Framework(10)\NYP_Framework\Common\Common.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:11.69
+Time Elapsed 00:00:09.46

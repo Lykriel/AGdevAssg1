@@ -11,12 +11,19 @@
 #include "GenericEntity.h"
 #include "SceneGraph/UpdateTransformation.h"
 
+class CEnemy;
 class ShaderProgram;
 class SceneManager;
 class TextEntity;
 class Light;
+
+enum STATE{
+	ONE,
+	TWO
+};
+
 class SceneText : public Scene
-{	
+{
 public:
 	SceneText();
 	~SceneText();
@@ -37,6 +44,7 @@ private:
 	Light* lights[2];
 
 	GenericEntity* theCube;
+	CEnemy* theEnemy;
 
 	static SceneText* sInstance; // The pointer to the object that gets registered
 };

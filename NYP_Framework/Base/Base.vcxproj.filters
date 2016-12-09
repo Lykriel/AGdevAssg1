@@ -31,8 +31,11 @@
     <Filter Include="SpatialPartition">
       <UniqueIdentifier>{802e439a-6b63-421f-9bce-337a839a36c4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="LevelOfDetail">
-      <UniqueIdentifier>{9a82783f-be15-4606-b296-9750a67ce479}</UniqueIdentifier>
+    <Filter Include="LevelOfDetails">
+      <UniqueIdentifier>{3f38a962-a883-4f37-9a91-6979b4fc1f88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy">
+      <UniqueIdentifier>{8cb76d44-dbb7-45cc-9b8d-b3f36c4a3724}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -114,8 +117,11 @@
     <ClCompile Include="Source\Projectile\Grenade.cpp">
       <Filter>Projectile</Filter>
     </ClCompile>
-    <ClCompile Include="Source\LevelOfDetails\LevelOfDetail.cpp">
-      <Filter>LevelOfDetail</Filter>
+    <ClCompile Include="Source\LevelOfDetails\LevelOfDetails.cpp">
+      <Filter>LevelOfDetails</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\Enemy.cpp">
+      <Filter>Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -195,7 +201,10 @@
       <Filter>Projectile</Filter>
     </ClInclude>
     <ClInclude Include="Source\LevelOfDetails\LevelOfDetails.h">
-      <Filter>LevelOfDetail</Filter>
+      <Filter>LevelOfDetails</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\Enemy.h">
+      <Filter>Enemy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,57 +1,13 @@
-﻿Build started 2/12/2016 5:25:40 PM.
-     1>Project "C:\Users\Jenny Liang\Desktop\AGDEV\NYP_Framework\Base\Base.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Jenny Liang\Desktop\AGDEV\NYP_Framework\/Common/Source" /I"C:\Users\Jenny Liang\Desktop\AGDEV\NYP_Framework\/glfw/include" /I"C:\Users\Jenny Liang\Desktop\AGDEV\NYP_Framework\/glew/include" /ZI /nologo /W3 /WX- /Od /Oy- /D _VARIADIC_MAX=10 /D WIN32 /D _DEBUG /D _CONSOLE /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source\Application.cpp Source\EntityManager.cpp Source\FPSCamera.cpp Source\GenericEntity.cpp Source\GroundEntity.cpp Source\LevelOfDetails\LevelOfDetail.cpp Source\Light.cpp Source\main.cpp Source\OBJMesh.cpp Source\PlayerInfo\PlayerInfo.cpp Source\Projectile\Grenade.cpp Source\Projectile\Laser.cpp Source\Projectile\Projectile.cpp Source\SceneGraph\SceneGraph.cpp Source\SceneGraph\SceneNode.cpp Source\SceneGraph\Transform.cpp Source\SceneGraph\UpdateTransformation.cpp Source\SceneText.cpp Source\SkyBox\SkyBoxEntity.cpp Source\SpatialPartition\Grid.cpp Source\SpatialPartition\SpatialPartition.cpp Source\SpriteEntity.cpp Source\TextEntity.cpp Source\WeaponInfo\GrenadeThrow.cpp Source\WeaponInfo\LaserBlaster.cpp Source\WeaponInfo\Pistol.cpp Source\WeaponInfo\WeaponInfo.cpp
-         WeaponInfo.cpp
-         Pistol.cpp
-         LaserBlaster.cpp
-         GrenadeThrow.cpp
-         TextEntity.cpp
-         SpriteEntity.cpp
-         SpatialPartition.cpp
-     1>c:\users\jenny liang\desktop\agdev\nyp_framework\base\source\spatialpartition\spatialpartition.cpp(70): warning C4244: 'argument' : conversion from 'int' to 'const float', possible loss of data
-     1>c:\users\jenny liang\desktop\agdev\nyp_framework\base\source\spatialpartition\spatialpartition.cpp(153): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\jenny liang\desktop\agdev\nyp_framework\base\source\spatialpartition\spatialpartition.cpp(177): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\jenny liang\desktop\agdev\nyp_framework\base\source\spatialpartition\spatialpartition.cpp(179): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-         Grid.cpp
-     1>c:\users\jenny liang\desktop\agdev\nyp_framework\base\source\spatialpartition\grid.cpp(42): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\jenny liang\desktop\agdev\nyp_framework\base\source\spatialpartition\grid.cpp(43): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\jenny liang\desktop\agdev\nyp_framework\base\source\spatialpartition\grid.cpp(123): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\jenny liang\desktop\agdev\nyp_framework\base\source\spatialpartition\grid.cpp(136): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\jenny liang\desktop\agdev\nyp_framework\base\source\spatialpartition\grid.cpp(175): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\jenny liang\desktop\agdev\nyp_framework\base\source\spatialpartition\grid.cpp(204): warning C4018: '<' : signed/unsigned mismatch
-         SkyBoxEntity.cpp
-         SceneText.cpp
-         UpdateTransformation.cpp
-         Transform.cpp
-         SceneNode.cpp
-         SceneGraph.cpp
-         Projectile.cpp
-         Laser.cpp
-         Grenade.cpp
-     1>c:\users\jenny liang\desktop\agdev\nyp_framework\base\source\projectile\grenade.cpp(54): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\jenny liang\desktop\agdev\nyp_framework\base\source\projectile\grenade.cpp(71): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\jenny liang\desktop\agdev\nyp_framework\base\source\projectile\grenade.cpp(75): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-         PlayerInfo.cpp
-         OBJMesh.cpp
-         main.cpp
-         Generating Code...
-         Compiling...
-         Light.cpp
-         LevelOfDetail.cpp
-         GroundEntity.cpp
-         GenericEntity.cpp
-         FPSCamera.cpp
-         EntityManager.cpp
-         Application.cpp
-         Generating Code...
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Jenny Liang\Desktop\AGDEV\NYP_Framework\Debug\Base.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\Users\Jenny Liang\Desktop\AGDEV\NYP_Framework\Debug" /LIBPATH:"C:\Users\Jenny Liang\Desktop\AGDEV\NYP_Framework\/glfw/lib-msvc100" /LIBPATH:"C:\Users\Jenny Liang\Desktop\AGDEV\NYP_Framework\/glew/lib" Common.lib winmm.lib opengl32.lib glu32.lib glew32.lib glfw3.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Jenny Liang\Desktop\AGDEV\NYP_Framework\Debug\Base.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Jenny Liang\Desktop\AGDEV\NYP_Framework\Debug\Base.lib" /MACHINE:X86 Debug\Application.obj
+﻿Build started 9/12/2016 4:05:49 PM.
+     1>Project "C:\Users\Jenny Liang\Downloads\NYP_Framework(10)\NYP_Framework\Base\Base.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Jenny Liang\Downloads\NYP_Framework(10)\NYP_Framework\Debug\Base.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\Users\Jenny Liang\Downloads\NYP_Framework(10)\NYP_Framework\Debug" /LIBPATH:"C:\Users\Jenny Liang\Downloads\NYP_Framework(10)\NYP_Framework\/glfw/lib-msvc100" /LIBPATH:"C:\Users\Jenny Liang\Downloads\NYP_Framework(10)\NYP_Framework\/glew/lib" Common.lib winmm.lib opengl32.lib glu32.lib glew32.lib glfw3.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Jenny Liang\Downloads\NYP_Framework(10)\NYP_Framework\Debug\Base.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Jenny Liang\Downloads\NYP_Framework(10)\NYP_Framework\Debug\Base.lib" /MACHINE:X86 Debug\Application.obj
+         Debug\Enemy.obj
          Debug\EntityManager.obj
          Debug\FPSCamera.obj
          Debug\GenericEntity.obj
          Debug\GroundEntity.obj
-         Debug\LevelOfDetail.obj
+         Debug\LevelOfDetails.obj
          Debug\Light.obj
          Debug\main.obj
          Debug\OBJMesh.obj
@@ -75,9 +31,9 @@
          Debug\WeaponInfo.obj
      1>Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
      1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-         Base.vcxproj -> C:\Users\Jenny Liang\Desktop\AGDEV\NYP_Framework\Debug\Base.exe
-     1>Done Building Project "C:\Users\Jenny Liang\Desktop\AGDEV\NYP_Framework\Base\Base.vcxproj" (Build target(s)).
+         Base.vcxproj -> C:\Users\Jenny Liang\Downloads\NYP_Framework(10)\NYP_Framework\Debug\Base.exe
+     1>Done Building Project "C:\Users\Jenny Liang\Downloads\NYP_Framework(10)\NYP_Framework\Base\Base.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:15.67
+Time Elapsed 00:00:00.64
