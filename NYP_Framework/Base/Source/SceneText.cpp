@@ -23,7 +23,7 @@
 #include "SceneGraph\SceneGraph.h"
 #include "SpatialPartition\SpatialPartition.h"
 #include "Enemy\Enemy.h"
-
+#include "Enemy\Eyeball.h"
 #include <iostream>
 using namespace std;
 
@@ -227,7 +227,7 @@ void SceneText::Init()
 	grandchildNode->SetUpdateTransformation(aRotateMtx);
 
 	//Create a CEnemy instance
-	theEnemy = new CEnemy();
+	theEnemy = new EyeBall();
 	theEnemy->Init();
 
     groundEntity = Create::Ground("GEO_BASIC_GROUND", "GEO_BASIC_GROUND_2");

@@ -123,6 +123,9 @@
     <ClCompile Include="Source\Enemy\Enemy.cpp">
       <Filter>Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Enemy\EyeBall.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Application.h">
@@ -204,6 +207,9 @@
       <Filter>LevelOfDetails</Filter>
     </ClInclude>
     <ClInclude Include="Source\Enemy\Enemy.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\Eyeball.h">
       <Filter>Enemy</Filter>
     </ClInclude>
   </ItemGroup>

@@ -16,8 +16,9 @@ public:
     EyeBall();
     ~EyeBall();
 
-    void SoloUpdate(double dt);
-    void ChildUpdate(double dt);
+    /*void SoloUpdate(double dt);
+    void ChildUpdate(double dt);*/
+    void Update(double dt = 0.0333f);
     void Render(void);
 private:
     EYE_STATES m_state;
@@ -25,7 +26,6 @@ private:
     int m_Health;
     int m_Speed;
 
-    void RunAI();
 
 };
 

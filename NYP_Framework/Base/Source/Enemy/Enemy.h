@@ -46,10 +46,10 @@ public:
 	GroundEntity* GetTerrain(void);
 
 	//Update
-	void Update(double dt = 0.0333f);
+	virtual void Update(double dt = 0.0333f);
 
 	//Constrain in the position within the borders
 	void Constrain(void);
 	//Render
-	void Render(void);
+	virtual void Render(void);
 };

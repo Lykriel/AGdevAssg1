@@ -17,6 +17,7 @@ class ShaderProgram;
 class SceneManager;
 class TextEntity;
 class Light;
+class EyeBall;
 
 enum STATE
 {
@@ -46,7 +47,7 @@ private:
 	Light* lights[2];
 
 	GenericEntity* theCube;
-	CEnemy* theEnemy;
+	EyeBall* theEnemy;
 
 	static SceneText* sInstance; // The pointer to the object that gets registered
 };
