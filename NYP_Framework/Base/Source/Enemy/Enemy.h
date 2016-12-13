@@ -1,6 +1,7 @@
 #pragma once
 #include "../GenericEntity.h"
 #include "../GroundEntity.h"
+#include "MeshBuilder.h"
 
 class Mesh;
 

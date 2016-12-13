@@ -151,16 +151,14 @@ void CEnemy::Constrain(void)
 //render
 void CEnemy::Render(void)
 {
-	MS& modelStack = GraphicsManager::GetInstance()->GetModelStack();
-	modelStack.PushMatrix();
-	modelStack.Translate(position.x, position.y, position.z);
-	modelStack.Scale(scale.x, scale.y, scale.z);
-	if (GetLODStatus() == true)
-	{
-		if (theDetailLevel != NO_DETAILS)
-		{
-			RenderHelper::RenderMesh(GetLODMesh());
-		}
-	}
-	modelStack.PopMatrix();
+    MS& modelStack = GraphicsManager::GetInstance()->GetModelStack();
+    modelStack.PushMatrix();
+    modelStack.Translate(position.x, position.y, position.z);
+    modelStack.Scale(scale.x, scale.y, scale.z);
+    /*if (GetLODStatus() == true)
+    {
+    if (theDetailLevel != NO_DETAILS)
+    {*/
+    RenderHelper::RenderMesh(MeshBuilder::GetInstance()->GetMesh("Obj_MobEye"));
+    modelStack.PopMatrix();
 }

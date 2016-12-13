@@ -11,13 +11,15 @@
 #include "GenericEntity.h"
 #include "SceneGraph/UpdateTransformation.h"
 
+
 class CEnemy;
 class ShaderProgram;
 class SceneManager;
 class TextEntity;
 class Light;
 
-enum STATE{
+enum STATE
+{
 	ONE,
 	TWO
 };

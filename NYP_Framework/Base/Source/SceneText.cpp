@@ -144,8 +144,13 @@ void SceneText::Init()
 	MeshBuilder::GetInstance()->GenerateQuad("GRASS_DARKGREEN", Color(1, 1, 1), 1.f);
 	MeshBuilder::GetInstance()->GetMesh("GRASS_DARKGREEN")->textureID = LoadTGA("Image//grass_darkgreen.tga");
 	MeshBuilder::GetInstance()->GenerateQuad("GEO_GRASS_LIGHTGREEN", Color(1, 1, 1), 1.f);
-	MeshBuilder::GetInstance()->GetMesh("GEO_GRASS_LIGHTGREEN")->textureID = LoadTGA("Image//grass_lightgreen.tga");
-	MeshBuilder::GetInstance()->GenerateCube("cubeSG", Color(1.0f, 0.64f, 0.0f), 1.0f);
+    MeshBuilder::GetInstance()->GetMesh("GEO_GRASS_LIGHTGREEN")->textureID = LoadTGA("Image//grass_lightgreen.tga");
+
+    MeshBuilder::GetInstance()->GenerateQuad("GEO_BASIC_GROUND", Color(1, 1, 1), 1.f);
+    MeshBuilder::GetInstance()->GetMesh("GEO_BASIC_GROUND")->textureID = LoadTGA("Image//floor_basic.tga");
+    MeshBuilder::GetInstance()->GenerateQuad("GEO_BASIC_GROUND_2", Color(1, 1, 1), 1.f);
+    MeshBuilder::GetInstance()->GetMesh("GEO_BASIC_GROUND_2")->textureID = LoadTGA("Image//floor_basic.tga");
+    MeshBuilder::GetInstance()->GenerateCube("cubeSG", Color(1.0f, 0.64f, 0.0f), 1.0f);
 
 	MeshBuilder::GetInstance()->GenerateQuad("SKYBOX_FRONT", Color(1, 1, 1), 1.f);
 	MeshBuilder::GetInstance()->GenerateQuad("SKYBOX_BACK", Color(1, 1, 1), 1.f);
@@ -162,6 +167,10 @@ void SceneText::Init()
 	MeshBuilder::GetInstance()->GenerateRay("laser", 10.0f);
 	MeshBuilder::GetInstance()->GenerateQuad("GRIDMESH", Color(1, 1, 1), 10.f);
 
+    //objs
+    MeshBuilder::GetInstance()->GenerateOBJ("Obj_MobEye","OBJ//Mob_Eye.obj");
+    MeshBuilder::GetInstance()->GetMesh("Obj_MobEye")->textureID = LoadTGA("Image//Mob_Eye.tga");
+
 	// Set up the Spatial Partition and pass it to the EntityManager to manage
 	CSpatialPartition::GetInstance()->Init(100, 100, 10, 10);
 	CSpatialPartition::GetInstance()->SetMesh("GRIDMESH");
@@ -177,6 +186,9 @@ void SceneText::Init()
 	aCube->SetCollider(true);
 	aCube->SetAABB(Vector3(0.5f, 0.5f, 0.5f), Vector3(-0.5f, -0.5f, -0.5f));
 	aCube->InitLOD("cube", "sphere", "cubeSG");
+    
+    GenericEntity* Eyetest = Create::Entity("Obj_MobEye", Vector3(0.0f, 10.0f, 0.0f));
+    
 
 	// Add the pointer to this new entity to the Scene Graph
 	CSceneNode* theNode = CSceneGraph::GetInstance()->AddNode(aCube);
@@ -218,7 +230,8 @@ void SceneText::Init()
 	theEnemy = new CEnemy();
 	theEnemy->Init();
 
-	groundEntity = Create::Ground("GRASS_DARKGREEN", "GEO_GRASS_LIGHTGREEN");
+    groundEntity = Create::Ground("GEO_BASIC_GROUND", "GEO_BASIC_GROUND_2");
+	//groundEntity = Create::Ground("GRASS_DARKGREEN", "GEO_GRASS_LIGHTGREEN");
 	//	Create::Text3DObject("text", Vector3(0.0f, 0.0f, 0.0f), "DM2210", Vector3(10.0f, 10.0f, 10.0f), Color(0, 1, 1));
 	Create::Sprite2DObject("crosshair", Vector3(0.0f, 0.0f, 0.0f), Vector3(10.0f, 10.0f, 10.0f));
 
