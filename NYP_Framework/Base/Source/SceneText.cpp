@@ -189,36 +189,9 @@ void SceneText::Init()
 	//Create::Entity("reference", Vector3(0.0f, 0.0f, 0.0f)); // Reference
 	Create::Entity("lightball", Vector3(lights[0]->position.x, lights[0]->position.y, lights[0]->position.z)); // Lightball
 
-	GenericEntity* Eyetest = Create::Entity("Obj_MobEye", Vector3(0.0f, 10.0f, 0.0f));
-	Eyetest->SetScale(Vector3(3, 3, 3));
 
-	GenericEntity* theBoss = Create::Entity("Obj_MobEye", Vector3(-20.0f, 1.1f, -20.0f));
-	theBoss->SetCollider(true);
-	theBoss->SetAABB(Vector3(0.5f, 0.5f, 0.5f), Vector3(-0.5f, -0.5f, -0.5f));
-
-	//// Add the pointer to this new entity to the Scene Graph
-	CSceneNode* parentNode = CSceneGraph::GetInstance()->AddNode(theBoss);
-	if (parentNode == NULL)
-	{
-		cout << "EntityManager::AddEntity: Unable to add to scene graph!" << endl;
-	}
-
-	GenericEntity* shield = Create::Asset("shield_high", Vector3(-20.0f, 0.0f, -20.0f));
-	shield->SetCollider(true);
-	shield->SetAABB(Vector3(0.5f, 0.5f, 0.5f), Vector3(-0.5f, -0.5f, -0.5f));
-	shield->InitLOD("shield_high", "shield_med", "shield_low");
-	shield->SetScale(Vector3(5, 5, 5));
-	CSceneNode* childNode = parentNode->AddChild(shield);
-
-	CUpdateTransformation* aTranslateMtx = new CUpdateTransformation();
-	aTranslateMtx->ApplyUpdate(0.0f, 0.5f, 0.0f);
-	aTranslateMtx->SetSteps(-10, 10);
-	childNode->SetUpdateTransformation(aTranslateMtx);
-	if (childNode == NULL)
-	{
-		cout << "EntityManager::AddEntity: Unable to add to scene graph!" << endl;
-	}
-
+	
+	
 	/*GenericEntity* baseCube = Create::Asset("cube", Vector3(0.0f, 0.0f, 0.0f));
 	CSceneNode* baseNode = CSceneGraph::GetInstance()->AddNode(baseCube);
 
@@ -264,6 +237,34 @@ void SceneText::Init()
         theEnemy[counter]->SetPos(ReturnRandomXZPos(5));
         //theEnemy[counter]->SetAABB(Vector3(3,3,3), Vector3(0.5,0.5,0.5));
         theEnemy[counter]->SetTerrain(groundEntity);
+    }
+
+    theBoss = new EyeBall();
+    theBoss->Init();
+    theBoss->SetPos(Vector3(0, 5, 0));
+    theBoss->SetTerrain(groundEntity);
+
+    //// Add the pointer to this new entity to the Scene Graph
+	CSceneNode* parentNode = CSceneGraph::GetInstance()->AddNode(theBoss);
+	if (parentNode == NULL)
+	{
+		cout << "EntityManager::AddEntity: Unable to add to scene graph!" << endl;
+	}
+
+	GenericEntity* shield = Create::Asset("shield_high", Vector3(-20.0f, 0.0f, -20.0f));
+	shield->SetCollider(true);
+	shield->SetAABB(Vector3(0.5f, 0.5f, 0.5f), Vector3(-0.5f, -0.5f, -0.5f));
+	shield->InitLOD("shield_high", "shield_med", "shield_low");
+	shield->SetScale(Vector3(5, 5, 5));
+	CSceneNode* childNode = parentNode->AddChild(shield);
+
+	CUpdateTransformation* aTranslateMtx = new CUpdateTransformation();
+	aTranslateMtx->ApplyUpdate(0.0f, 0.5f, 0.0f);
+	aTranslateMtx->SetSteps(-10, 10);
+	childNode->SetUpdateTransformation(aTranslateMtx);
+    if (childNode == NULL)
+    {
+        cout << "EntityManager::AddEntity: Unable to add to scene graph!" << endl;
     }
 
 
