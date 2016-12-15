@@ -14,18 +14,20 @@
 CPlayerInfo *CPlayerInfo::s_instance = 0;
 
 CPlayerInfo::CPlayerInfo(void)
-	: m_dSpeed(40.0)
-	, m_dAcceleration(10.0)
-	, m_bJumpUpwards(false)
-	, m_dJumpSpeed(10.0)
-	, m_dJumpAcceleration(-10.0)
-	, m_bFallDownwards(false)
-	, m_dFallSpeed(0.0)
-	, m_dFallAcceleration(-10.0)
-	, attachedCamera(NULL)
-	, m_pTerrain(NULL)
-	, primaryWeapon(NULL)
-	, secondaryWeapon(NULL)
+    : m_dSpeed(40.0)
+    , m_dAcceleration(10.0)
+    , m_bJumpUpwards(false)
+    , m_dJumpSpeed(10.0)
+    , m_dJumpAcceleration(-10.0)
+    , m_bFallDownwards(false)
+    , m_dFallSpeed(0.0)
+    , m_dFallAcceleration(-10.0)
+    , attachedCamera(NULL)
+    , m_pTerrain(NULL)
+    , primaryWeapon(NULL)
+    , secondaryWeapon(NULL)
+    , m_PlayerHealth(20)
+    , m_IsAlive(true)
 {
 }
 
@@ -494,4 +496,28 @@ void CPlayerInfo::AttachCamera(FPSCamera* _cameraPtr)
 void CPlayerInfo::DetachCamera()
 {
 	attachedCamera = nullptr;
+}
+
+void CPlayerInfo::SetHealth(int hp)
+{
+    this->m_PlayerHealth = hp;
+}
+
+int CPlayerInfo::GetHealth()
+{
+    return m_PlayerHealth;
+}
+
+void CPlayerInfo::TakeDamage(int damage)
+{
+    
+    if ((m_PlayerHealth - damage) < 0)
+    {
+        m_IsAlive = false;
+        m_PlayerHealth = 0;
+    }
+    else
+    {
+        m_PlayerHealth -= damage;
+    }
 }

@@ -96,6 +96,12 @@ public:
 	void AttachCamera(FPSCamera* _cameraPtr);
 	void DetachCamera(void);
 
+    //health
+    void SetHealth(int HP);
+    int GetHealth();
+    void TakeDamage(int Damage);
+    
+
 private:
 	Vector3 defaultPosition, defaultTarget, defaultUp;
 	Vector3 position, target, up;
@@ -117,4 +123,7 @@ private:
 
 	CWeaponInfo* primaryWeapon;
 	CWeaponInfo* secondaryWeapon;
+
+    int m_PlayerHealth;
+    bool m_IsAlive;
 };

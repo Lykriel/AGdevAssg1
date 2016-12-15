@@ -20,12 +20,16 @@ public:
     void ChildUpdate(double dt);*/
     void Update(double dt = 0.0333f);
     void Render(void);
-private:
     EYE_STATES m_state;
+private:
+
     Vector3 m_AttackTarget;
     int m_Health;
-    int m_Speed;
-
+    bool aim, targetSelected;
+    void StateUpdate(double dt);
+    float AimTimer, attackTimer;
+    Vector3 viewVector;
+    float DistBetwVect(Vector3 point1, Vector3 point2);
 
 };
 

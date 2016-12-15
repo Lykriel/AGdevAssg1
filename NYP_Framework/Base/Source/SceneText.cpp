@@ -350,7 +350,7 @@ void SceneText::Update(double dt)
 
 	std::ostringstream ss1;
 	ss1.precision(4);
-	ss1 << "Player:" << playerInfo->GetPos();
+	ss1 << "Player:" << /*playerInfo->GetPos()*/theEnemy->m_state;
 	textObj[2]->SetText(ss1.str());
 }
 
