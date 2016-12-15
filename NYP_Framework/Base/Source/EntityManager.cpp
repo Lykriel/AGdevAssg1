@@ -3,6 +3,7 @@
 #include "Collider/Collider.h"
 #include "Projectile/Laser.h"
 #include "SceneGraph\SceneGraph.h"
+#include "Enemy\Eyeball.h"
 
 #include <iostream>
 using namespace std;
@@ -401,8 +402,27 @@ bool EntityManager::CheckForCollision(void)
                     {
                         if (CheckAABBCollision(thisEntity, thatEntity))
                         {
-                            thisEntity->SetIsDone(true);
-                            thatEntity->SetIsDone(true);
+                            if ((thisEntity->GetEntityType() == EntityBase::EYEBALL && thatEntity->GetEntityType() == EntityBase::PROJECTILE))                                                              
+                            {
+                                thisEntity->TakeDamage(2);
+                                cout << "Hit "<< endl;
+                                thatEntity->SetIsDone(true);
+                                if (thisEntity->GetHealth() <= 0)
+                                {
+                                    thisEntity->SetIsDone(true);
+                                }
+                            }
+                            else if ((thatEntity->GetEntityType() == EntityBase::EYEBALL && thisEntity->GetEntityType() == EntityBase::PROJECTILE))
+                            {
+                                thatEntity->TakeDamage(2);
+                                cout << "Hit " << endl;
+                                thisEntity->SetIsDone(true);
+                                if (thatEntity->GetHealth() <= 0)
+                                {
+                                    thatEntity->SetIsDone(true);
+                                }
+                            }
+                                                      
                             // Remove from Scene Graph
                             if (CSceneGraph::GetInstance()->DeleteNode((*colliderThis)) == true)
                             {

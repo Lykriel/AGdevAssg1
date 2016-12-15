@@ -7,13 +7,13 @@
 EyeBall::EyeBall()
     :m_state(EYE_STATES::Patrol)
     , m_AttackTarget(Vector3(0, 0, 0))
-    , m_Health(10)
     , aim(false)
     , AimTimer(0.f)
     , attackTimer(0.f)
     , targetSelected(false)
 {
-
+    m_EntityType = EntityBase::EYEBALL;
+    m_dHealth = 10;
 }
 
 EyeBall::~EyeBall()

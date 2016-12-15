@@ -6,6 +6,8 @@ EntityBase::EntityBase()
 	, isDone(false)
 	, m_bCollider(false)
 	, bLaser(false)
+    , m_EntityType(NO_TYPE)
+    , m_dHealth(0)
 {
 }
 

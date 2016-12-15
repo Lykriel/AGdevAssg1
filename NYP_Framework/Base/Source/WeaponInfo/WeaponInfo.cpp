@@ -155,6 +155,7 @@ void CWeaponInfo::Discharge(Vector3 position, Vector3 target, CPlayerInfo* _sour
 			aProjectile->SetCollider(true);
 			aProjectile->SetAABB(Vector3(0.5f, 0.5f, 0.5f), Vector3(-0.5f, -0.5f, -0.5f));
             aProjectile->SetScale(Vector3(0.2f, 0.2f, 0.2f));
+            aProjectile->SetType(EntityBase::PROJECTILE);
 			bFire = false;
 			magRounds--;
 		}

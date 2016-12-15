@@ -10,9 +10,10 @@ CProjectile::CProjectile(void)
 	, m_bStatus(false)
 	, theDirection(0, 0, 0)
 	, m_fLifetime(-1.0f)
-	, m_fSpeed(10.0f)
+	, m_fSpeed(20.0f)
 	, theSource(NULL)
 {
+    m_EntityType = EntityBase::PROJECTILE;
 }
 
 CProjectile::CProjectile(Mesh* _modelMesh)

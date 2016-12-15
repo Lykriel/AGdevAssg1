@@ -42,6 +42,7 @@ public:
 	virtual void Update(double dt = 0.0333f);
 	// Render this projectile
 	virtual void Render(void);
+    virtual void SetType(EntityBase::ENTITY_TYPE type){ m_EntityType = type; };
 protected:
 	// The model mesh for this projectile
 	Mesh* modelMesh;

@@ -6,6 +6,12 @@
 class EntityBase
 {
 public:
+    enum ENTITY_TYPE
+    {
+        NO_TYPE,
+        PROJECTILE,
+        EYEBALL,
+    };
 	EntityBase();
 	virtual ~EntityBase();
 
@@ -31,6 +37,10 @@ public:
 	// Get the flag, bLaser
 	virtual bool GetIsLaser(void) const;
 
+    virtual ENTITY_TYPE GetEntityType(){ return m_EntityType; };
+    virtual int GetHealth(){ return m_dHealth; };
+    virtual void TakeDamage(int damage){ m_dHealth -= damage; };
+
 protected:
 	Vector3 position;
 	Vector3 scale;
@@ -38,6 +48,8 @@ protected:
 	bool isDone;
 	bool m_bCollider;
 	bool bLaser;
+    ENTITY_TYPE m_EntityType;
+    int m_dHealth;
 };
 
 #endif // ENTITY_BASE_H
