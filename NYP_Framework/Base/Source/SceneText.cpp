@@ -253,6 +253,7 @@ void SceneText::Init()
         theEnemy[counter]->Init();
         theEnemy[counter]->SetScale(Vector3(3, 3, 3));
         theEnemy[counter]->SetPos(ReturnRandomXZPos(5));
+        //theEnemy[counter]->SetAABB(Vector3(3,3,3), Vector3(0.5,0.5,0.5));
         theEnemy[counter]->SetTerrain(groundEntity);
     }
 
