@@ -144,13 +144,13 @@ void SceneText::Init()
 	MeshBuilder::GetInstance()->GenerateQuad("GRASS_DARKGREEN", Color(1, 1, 1), 1.f);
 	MeshBuilder::GetInstance()->GetMesh("GRASS_DARKGREEN")->textureID = LoadTGA("Image//grass_darkgreen.tga");
 	MeshBuilder::GetInstance()->GenerateQuad("GEO_GRASS_LIGHTGREEN", Color(1, 1, 1), 1.f);
-    MeshBuilder::GetInstance()->GetMesh("GEO_GRASS_LIGHTGREEN")->textureID = LoadTGA("Image//grass_lightgreen.tga");
+	MeshBuilder::GetInstance()->GetMesh("GEO_GRASS_LIGHTGREEN")->textureID = LoadTGA("Image//grass_lightgreen.tga");
 
-    MeshBuilder::GetInstance()->GenerateQuad("GEO_BASIC_GROUND", Color(1, 1, 1), 1.f);
-    MeshBuilder::GetInstance()->GetMesh("GEO_BASIC_GROUND")->textureID = LoadTGA("Image//floor_basic.tga");
-    MeshBuilder::GetInstance()->GenerateQuad("GEO_BASIC_GROUND_2", Color(1, 1, 1), 1.f);
-    MeshBuilder::GetInstance()->GetMesh("GEO_BASIC_GROUND_2")->textureID = LoadTGA("Image//floor_basic.tga");
-    MeshBuilder::GetInstance()->GenerateCube("cubeSG", Color(1.0f, 0.64f, 0.0f), 1.0f);
+	MeshBuilder::GetInstance()->GenerateQuad("GEO_BASIC_GROUND", Color(1, 1, 1), 1.f);
+	MeshBuilder::GetInstance()->GetMesh("GEO_BASIC_GROUND")->textureID = LoadTGA("Image//floor_basic.tga");
+	MeshBuilder::GetInstance()->GenerateQuad("GEO_BASIC_GROUND_2", Color(1, 1, 1), 1.f);
+	MeshBuilder::GetInstance()->GetMesh("GEO_BASIC_GROUND_2")->textureID = LoadTGA("Image//floor_basic.tga");
+	MeshBuilder::GetInstance()->GenerateCube("cubeSG", Color(1.0f, 0.64f, 0.0f), 1.0f);
 
 	MeshBuilder::GetInstance()->GenerateQuad("SKYBOX_FRONT", Color(1, 1, 1), 1.f);
 	MeshBuilder::GetInstance()->GenerateQuad("SKYBOX_BACK", Color(1, 1, 1), 1.f);
@@ -167,9 +167,16 @@ void SceneText::Init()
 	MeshBuilder::GetInstance()->GenerateRay("laser", 10.0f);
 	MeshBuilder::GetInstance()->GenerateQuad("GRIDMESH", Color(1, 1, 1), 10.f);
 
-    //objs
-    MeshBuilder::GetInstance()->GenerateOBJ("Obj_MobEye","OBJ//Mob_Eye.obj");
-    MeshBuilder::GetInstance()->GetMesh("Obj_MobEye")->textureID = LoadTGA("Image//Mob_Eye.tga");
+	//objs
+	MeshBuilder::GetInstance()->GenerateOBJ("Obj_MobEye", "OBJ//Mob_Eye.obj");
+	MeshBuilder::GetInstance()->GetMesh("Obj_MobEye")->textureID = LoadTGA("Image//Mob_Eye.tga");
+
+	MeshBuilder::GetInstance()->GenerateOBJ("shield_high", "OBJ//High_res.obj");
+	MeshBuilder::GetInstance()->GetMesh("shield_high")->textureID = LoadTGA("Image//brick.tga");
+	MeshBuilder::GetInstance()->GenerateOBJ("shield_med", "OBJ//Med_res.obj");
+	MeshBuilder::GetInstance()->GetMesh("shield_med")->textureID = LoadTGA("Image//brick.tga");
+	MeshBuilder::GetInstance()->GenerateOBJ("shield_low", "OBJ//Low_res.obj");
+	MeshBuilder::GetInstance()->GetMesh("shield_low")->textureID = LoadTGA("Image//brick.tga");
 
 	// Set up the Spatial Partition and pass it to the EntityManager to manage
 	CSpatialPartition::GetInstance()->Init(100, 100, 10, 10);
@@ -182,31 +189,35 @@ void SceneText::Init()
 	//Create::Entity("reference", Vector3(0.0f, 0.0f, 0.0f)); // Reference
 	Create::Entity("lightball", Vector3(lights[0]->position.x, lights[0]->position.y, lights[0]->position.z)); // Lightball
 
-	/*GenericEntity* aCube = Create::Entity("cube", Vector3(-20.0f, 0.0f, -20.0f));
-	aCube->SetCollider(true);
-	aCube->SetAABB(Vector3(0.5f, 0.5f, 0.5f), Vector3(-0.5f, -0.5f, -0.5f));
-	aCube->InitLOD("cube", "sphere", "cubeSG");*/
-    
-    GenericEntity* Eyetest = Create::Entity("Obj_MobEye", Vector3(0.0f, 10.0f, 0.0f));
-    Eyetest->SetScale(Vector3(3,3,3));
+	GenericEntity* Eyetest = Create::Entity("Obj_MobEye", Vector3(0.0f, 10.0f, 0.0f));
+	Eyetest->SetScale(Vector3(3, 3, 3));
 
-    
+	GenericEntity* theBoss = Create::Entity("Obj_MobEye", Vector3(-20.0f, 1.1f, -20.0f));
+	theBoss->SetCollider(true);
+	theBoss->SetAABB(Vector3(0.5f, 0.5f, 0.5f), Vector3(-0.5f, -0.5f, -0.5f));
 
 	//// Add the pointer to this new entity to the Scene Graph
-	//CSceneNode* theNode = CSceneGraph::GetInstance()->AddNode(aCube);
-	//if (theNode == NULL)
-	//{
-	//	cout << "EntityManager::AddEntity: Unable to add to scene graph!" << endl;
-	//}
+	CSceneNode* parentNode = CSceneGraph::GetInstance()->AddNode(theBoss);
+	if (parentNode == NULL)
+	{
+		cout << "EntityManager::AddEntity: Unable to add to scene graph!" << endl;
+	}
 
-	//GenericEntity* anotherCube = Create::Entity("cube", Vector3(-20.0f, 1.1f, -20.0f));
-	//anotherCube->SetCollider(true);
-	//anotherCube->SetAABB(Vector3(0.5f, 0.5f, 0.5f), Vector3(-0.5f, -0.5f, -0.5f));
-	//CSceneNode* anotherNode = theNode->AddChild(anotherCube);
-	//if (anotherNode == NULL)
-	//{
-	//	cout << "EntityManager::AddEntity: Unable to add to scene graph!" << endl;
-	//}
+	GenericEntity* shield = Create::Asset("shield_high", Vector3(-20.0f, 0.0f, -20.0f));
+	shield->SetCollider(true);
+	shield->SetAABB(Vector3(0.5f, 0.5f, 0.5f), Vector3(-0.5f, -0.5f, -0.5f));
+	shield->InitLOD("shield_high", "shield_med", "shield_low");
+	shield->SetScale(Vector3(5, 5, 5));
+	CSceneNode* childNode = parentNode->AddChild(shield);
+
+	CUpdateTransformation* aTranslateMtx = new CUpdateTransformation();
+	aTranslateMtx->ApplyUpdate(0.0f, 0.5f, 0.0f);
+	aTranslateMtx->SetSteps(-10, 10);
+	childNode->SetUpdateTransformation(aTranslateMtx);
+	if (childNode == NULL)
+	{
+		cout << "EntityManager::AddEntity: Unable to add to scene graph!" << endl;
+	}
 
 	/*GenericEntity* baseCube = Create::Asset("cube", Vector3(0.0f, 0.0f, 0.0f));
 	CSceneNode* baseNode = CSceneGraph::GetInstance()->AddNode(baseCube);
@@ -228,10 +239,7 @@ void SceneText::Init()
 	aRotateMtx->SetSteps(-120, 60);
 	grandchildNode->SetUpdateTransformation(aRotateMtx);*/
 
-	
-	
-
-    groundEntity = Create::Ground("GEO_BASIC_GROUND", "GEO_BASIC_GROUND_2");
+	groundEntity = Create::Ground("GEO_BASIC_GROUND", "GEO_BASIC_GROUND_2");
 	//groundEntity = Create::Ground("GRASS_DARKGREEN", "GEO_GRASS_LIGHTGREEN");
 	//	Create::Text3DObject("text", Vector3(0.0f, 0.0f, 0.0f), "DM2210", Vector3(10.0f, 10.0f, 10.0f), Color(0, 1, 1));
 	Create::Sprite2DObject("crosshair", Vector3(0.0f, 0.0f, 0.0f), Vector3(10.0f, 10.0f, 10.0f));
@@ -245,16 +253,16 @@ void SceneText::Init()
 	groundEntity->SetScale(Vector3(100.0f, 100.0f, 100.0f));
 	groundEntity->SetGrids(Vector3(10.0f, 1.0f, 10.0f));
 	playerInfo->SetTerrain(groundEntity);
-	
-    //Create a CEnemy instance
-    for (int counter = 0; counter < 15; counter++)
-    {
-        theEnemy[counter] = new EyeBall();
-        theEnemy[counter]->Init();
-        theEnemy[counter]->SetScale(Vector3(3, 3, 3));
-        theEnemy[counter]->SetPos(ReturnRandomXZPos(5));
-        theEnemy[counter]->SetTerrain(groundEntity);
-    }
+
+	//Create a CEnemy instance
+	for (int counter = 0; counter < 15; counter++)
+	{
+		theEnemy[counter] = new EyeBall();
+		theEnemy[counter]->Init();
+		theEnemy[counter]->SetScale(Vector3(3, 3, 3));
+		theEnemy[counter]->SetPos(ReturnRandomXZPos(5));
+		theEnemy[counter]->SetTerrain(groundEntity);
+	}
 
 	// Setup the 2D entities
 	float halfWindowWidth = Application::GetInstance().GetWindowWidth() / 2.0f;
@@ -270,10 +278,10 @@ void SceneText::Init()
 
 Vector3 SceneText::ReturnRandomXZPos(float Y_position)
 {
-    Vector3 output = Vector3(0,Y_position,0);
-    output.x = (float)(((rand()) % 999) + (-499));
-    output.z = (float)(((rand()) % 999) + (-499));
-    return output;
+	Vector3 output = Vector3(0, Y_position, 0);
+	output.x = (float)(((rand()) % 999) + (-499));
+	output.z = (float)(((rand()) % 999) + (-499));
+	return output;
 }
 
 void SceneText::Update(double dt)
@@ -368,7 +376,7 @@ void SceneText::Update(double dt)
 
 	std::ostringstream ss1;
 	ss1.precision(4);
-    ss1 << "Player:"; 
+	ss1 << "Player:";
 	textObj[2]->SetText(ss1.str());
 }
 

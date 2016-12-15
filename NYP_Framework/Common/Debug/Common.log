@@ -1,34 +1,9 @@
-﻿Build started 16/12/2016 2:35:59 AM.
-     1>Project "C:\Users\Shem\Desktop\AGdevAssg1\NYP_Framework\Common\Common.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Shem\Desktop\AGdevAssg1\NYP_Framework\/glew/include /IC:\Users\Shem\Desktop\AGdevAssg1\NYP_Framework\/glfw/include /I"C:\Program Files (x86)\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /Od /Oy- /D _VARIADIC_MAX=10 /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source\EntityBase.cpp
-         EntityBase.cpp
-       Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Shem\Desktop\AGdevAssg1\NYP_Framework\Debug\Common.lib" /LIBPATH:"C:\Program Files (x86)\Visual Leak Detector\lib\Win32" /NOLOGO Debug\CameraBase.obj
-         Debug\Collider.obj
-         Debug\EntityBase.obj
-         Debug\GraphicsManager.obj
-         Debug\KeyboardController.obj
-         Debug\LightBase.obj
-         Debug\LoadOBJ.obj
-         Debug\LoadTGA.obj
-         Debug\MathUtility.obj
-         Debug\MatrixStack.obj
-         Debug\Mesh.obj
-         Debug\MeshBuilder.obj
-         Debug\MouseController.obj
-         Debug\Mtx44.obj
-         Debug\RenderHelper.obj
-         Debug\SceneManager.obj
-         Debug\ShaderProgram.obj
-         Debug\timer.obj
-         Debug\Utility.obj
-         Debug\Vector2.obj
-         Debug\Vector3.obj
-         Debug\Win32Input.obj
-         Common.vcxproj -> C:\Users\Shem\Desktop\AGdevAssg1\NYP_Framework\Debug\Common.lib
-     1>Done Building Project "C:\Users\Shem\Desktop\AGdevAssg1\NYP_Framework\Common\Common.vcxproj" (Build target(s)).
+﻿Build started 16/12/2016 5:24:18 AM.
+     1>Project "C:\Users\Jenny Liang\Desktop\AGDEV\NYP_Framework\Common\Common.vcxproj" on node 2 (Build target(s)).
+     1>Lib:
+         Common.vcxproj -> C:\Users\Jenny Liang\Desktop\AGDEV\NYP_Framework\Debug\Common.lib
+     1>Done Building Project "C:\Users\Jenny Liang\Desktop\AGDEV\NYP_Framework\Common\Common.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.80
+Time Elapsed 00:00:00.08
