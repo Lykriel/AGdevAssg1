@@ -102,7 +102,7 @@ void EyeBall::StateUpdate(double dt)
     //attack state not functional yet
     if (m_state == EYE_STATES::Attack)
     {
-        m_dSpeed = 100.f;
+        m_dSpeed = 50.f;
         attackTimer += (float)dt;
         position += viewVector *(float)m_dSpeed * (float)dt;
         

@@ -47,9 +47,10 @@ private:
 	Light* lights[2];
 
 	GenericEntity* theCube;
-	EyeBall* theEnemy;
+	EyeBall* theEnemy[15];
 
 	static SceneText* sInstance; // The pointer to the object that gets registered
+    Vector3 ReturnRandomXZPos(float Y_Pos);//returns random xz coord betw -499 and 499
 };
 
 #endif

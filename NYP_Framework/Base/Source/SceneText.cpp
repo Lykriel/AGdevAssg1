@@ -162,7 +162,7 @@ void SceneText::Init()
 	MeshBuilder::GetInstance()->GetMesh("SKYBOX_BACK")->textureID = LoadTGA("Image//SkyBox//skybox_back.tga");
 	MeshBuilder::GetInstance()->GetMesh("SKYBOX_LEFT")->textureID = LoadTGA("Image//SkyBox//skybox_left.tga");
 	MeshBuilder::GetInstance()->GetMesh("SKYBOX_RIGHT")->textureID = LoadTGA("Image//SkyBox//skybox_right.tga");
-	MeshBuilder::GetInstance()->GetMesh("SKYBOX_TOP")->textureID = LoadTGA("Image//SkyBox//skybox_top.tga");
+	MeshBuilder::GetInstance()->GetMesh("SKYBOX_TOP")->textureID = LoadTGA("Image//SkyBox//skybox_up.tga");
 	MeshBuilder::GetInstance()->GetMesh("SKYBOX_BOTTOM")->textureID = LoadTGA("Image//SkyBox//skybox_bottom.tga");
 	MeshBuilder::GetInstance()->GenerateRay("laser", 10.0f);
 	MeshBuilder::GetInstance()->GenerateQuad("GRIDMESH", Color(1, 1, 1), 10.f);
@@ -179,7 +179,7 @@ void SceneText::Init()
 	EntityManager::GetInstance()->SetSpatialPartition(CSpatialPartition::GetInstance());
 
 	// Create entities into the scene
-	Create::Entity("reference", Vector3(0.0f, 0.0f, 0.0f)); // Reference
+	//Create::Entity("reference", Vector3(0.0f, 0.0f, 0.0f)); // Reference
 	Create::Entity("lightball", Vector3(lights[0]->position.x, lights[0]->position.y, lights[0]->position.z)); // Lightball
 
 	GenericEntity* aCube = Create::Entity("cube", Vector3(-20.0f, 0.0f, -20.0f));
@@ -188,6 +188,8 @@ void SceneText::Init()
 	aCube->InitLOD("cube", "sphere", "cubeSG");
     
     GenericEntity* Eyetest = Create::Entity("Obj_MobEye", Vector3(0.0f, 10.0f, 0.0f));
+    Eyetest->SetScale(Vector3(3,3,3));
+
     
 
 	// Add the pointer to this new entity to the Scene Graph
@@ -226,9 +228,8 @@ void SceneText::Init()
 	aRotateMtx->SetSteps(-120, 60);
 	grandchildNode->SetUpdateTransformation(aRotateMtx);
 
-	//Create a CEnemy instance
-	theEnemy = new EyeBall();
-	theEnemy->Init();
+	
+	
 
     groundEntity = Create::Ground("GEO_BASIC_GROUND", "GEO_BASIC_GROUND_2");
 	//groundEntity = Create::Ground("GRASS_DARKGREEN", "GEO_GRASS_LIGHTGREEN");
@@ -244,7 +245,15 @@ void SceneText::Init()
 	groundEntity->SetScale(Vector3(100.0f, 100.0f, 100.0f));
 	groundEntity->SetGrids(Vector3(10.0f, 1.0f, 10.0f));
 	playerInfo->SetTerrain(groundEntity);
-	theEnemy->SetTerrain(groundEntity);
+	
+    //Create a CEnemy instance
+    for (int counter = 0; counter < 15; counter++)
+    {
+        theEnemy[counter] = new EyeBall();
+        theEnemy[counter]->Init();
+        theEnemy[counter]->SetPos(ReturnRandomXZPos(5));
+        theEnemy[counter]->SetTerrain(groundEntity);
+    }
 
 	// Setup the 2D entities
 	float halfWindowWidth = Application::GetInstance().GetWindowWidth() / 2.0f;
@@ -256,6 +265,14 @@ void SceneText::Init()
 		textObj[i] = Create::Text2DObject("text", Vector3(-halfWindowWidth, -halfWindowHeight + fontSize*i + halfFontSize, 0.0f), "", Vector3(fontSize, fontSize, fontSize), Color(0.0f, 1.0f, 0.0f));
 	}
 	textObj[0]->SetText("HELLO WORLD");
+}
+
+Vector3 SceneText::ReturnRandomXZPos(float Y_position)
+{
+    Vector3 output = Vector3(0,Y_position,0);
+    output.x = (float)(((rand()) % 999) + (-499));
+    output.z = (float)(((rand()) % 999) + (-499));
+    return output;
 }
 
 void SceneText::Update(double dt)
@@ -350,7 +367,7 @@ void SceneText::Update(double dt)
 
 	std::ostringstream ss1;
 	ss1.precision(4);
-	ss1 << "Player:" << /*playerInfo->GetPos()*/theEnemy->m_state;
+    ss1 << "Player:"; 
 	textObj[2]->SetText(ss1.str());
 }
 
